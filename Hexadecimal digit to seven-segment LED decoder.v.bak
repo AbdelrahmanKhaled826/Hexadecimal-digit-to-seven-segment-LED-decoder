@@ -1,0 +1,31 @@
+//seven segment display 
+module seven_segment(
+input wire [3:0] dis_play,
+input wire dp,
+output reg [7:0] led
+//           a b c d e f g dp
+);
+always @(*)
+begin
+case (dis_play)
+//             abcdefg
+4'h0: led = 7'b0000001;
+4'h1: led = 7'b1001111;
+4'h2: led = 7'b0010010;
+4'h3: led = 7'b0000110;
+4'h4: led = 7'b1001100;
+4'h5: led = 7'b0100100;
+4'h6: led = 7'b0100000;
+4'h7: led = 7'b0001111;
+4'h8: led = 7'b0000000;
+4'h9: led = 7'b0000100;
+4'ha: led = 7'b0000010;
+4'hb: led = 7'b1100000;
+4'hc: led = 7'b0110001;
+4'hd: led = 7'b1000010;
+4'he: led = 7'b0110000;
+default: led = 7'b0111000;
+endcase
+led[7]=dp;
+end
+endmodule
